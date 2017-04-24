@@ -6,7 +6,7 @@ The package exports a function of two arguments:
 
 1. a [boolean-json](https://npmjs.com/packages/boolean-json-schema) expression
 
-2. an object map from string variable name to `true` or `false`
+2. an object map from string variable name to `true`, `false` or a predicate (a function returning a boolean value) to be computed lazily.
 
 It returns `true` or `false`.
 
@@ -18,7 +18,7 @@ assert(evaluate('x', {x: true}))
 assert(
   evaluate(
     {or: ['a', {not: 'b'}, 'c']},
-    {a: false, b: true, c: true}
+    {a: false, b: true, c: () => 2 * 2 === 4}
   )
 )
 
