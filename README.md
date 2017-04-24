@@ -44,3 +44,6 @@ assert.throws(function() {
   evaluate('x', {})
 })
 ```
+
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/kupibilet-frontend/boolean-json-eval.js.svg)](https://greenkeeper.io/)
