@@ -1,12 +1,16 @@
 {
   "name": "@kupibilet/boolean-json-eval",
   "description": "evaluate boolean-json expressions",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "devDependencies": {
     "defence-cli": "~1.0.1",
+    "jest": "^19.0.2",
     "replace-require-self": "~1.0.0",
-    "standard": "^8.0.0-beta.5"
+    "standard": "^8.0.0-beta.5",
+    "typescript": "^2.2.2"
   },
   "keywords": [
     "algebra",
@@ -20,6 +24,8 @@
   "license": "MIT",
   "repository": "kemitchell/boolean-json-eval.js",
   "scripts": {
-    "lint": "standard"
+    "lint": "standard",
+    "test": "jest",
+    "build": "rm -rf lib && tsc"
   }
 }
