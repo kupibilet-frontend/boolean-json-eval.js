@@ -1,9 +1,3 @@
-type Operand = 'and' | 'or' | 'not'
-
-interface Cache {
-  [variable: string]: boolean,
-}
-
 export type Expression = ExpressionObject | string
 
 export interface ExpressionObject {
