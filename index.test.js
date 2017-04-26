@@ -19,7 +19,10 @@ test('!a * !!!a * (a + !a)', () => {
       ]
     },
     {
-      a: false,
+      a: () => {
+        console.log('called only once')
+        return false
+      },
     },
   )
   expect(result).toBe(true)

@@ -12,17 +12,16 @@ export interface Variables {
   [variable: string]: boolean | Predicate
 }
 
-function booleanJSONEval(expression: Expression, variables: Variables): boolean {
+export default function booleanJSONEval(expression: Expression, variables: Variables): boolean {
   if (typeof expression === 'string') {
     if (!(expression in variables)) {
       throw new Error(`Undefined variable: ${expression}`)
     }
 
-    let variable = variables[expression]
-    if (typeof variable === 'function') {
-      variables[expression] = variable = variable()
-    }
-    return !!variable
+    const variable = variables[expression]
+    return typeof variable === 'function'
+      ? variables[expression] = !!variable() // caching
+      : !!variable
   }
 
   if ('not' in expression) {
@@ -39,5 +38,3 @@ function booleanJSONEval(expression: Expression, variables: Variables): boolean 
 
   throw new Error('Invalid boolean JSON')
 }
-
-export default booleanJSONEval

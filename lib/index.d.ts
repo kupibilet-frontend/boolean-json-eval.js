@@ -8,5 +8,4 @@ export declare type Predicate = () => boolean;
 export interface Variables {
     [variable: string]: boolean | Predicate;
 }
-declare function booleanJSONEval(expression: Expression, variables: Variables): boolean;
-export default booleanJSONEval;
+export default function booleanJSONEval(expression: Expression, variables: Variables): boolean;
